@@ -32,9 +32,9 @@ def start():
         time = time.split('.')[0]
         #print(time)
         if sever == 'on':
-            requests.get('http://push.ijingniu.cn/send?key=' + sckey + '&head=GLaDOS 签到提醒' + '&body='+mess+，会员剩余' + time + '天')
+            requests.get('http://push.ijingniu.cn/send?key=' + sckey + '&head=GLaDOS 签到提醒' + '&body='+mess+'\n会员剩余' + time + '天')
     else:
-        requests.get('https://sc.ftqq.com/' + sckey + '.send?text=cookie过期')
+        requests.get('http://push.ijingniu.cn/send?key=' + sckey + '&head=GLaDOS Cookie过期')
 
 def main_handler(event, context):
   return start()
