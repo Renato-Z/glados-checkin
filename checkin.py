@@ -32,7 +32,7 @@ def start():
         time = time.split('.')[0]
         #print(time)
         if sever == 'on':
-            requests.get('http://push.ijingniu.cn/send?key=' + sckey + '&head=GLaDOS 签到提醒' + '&body='+mess+'\n会员剩余' + time + '天')
+            requests.get('http://push.ijingniu.cn/send?key=' + sckey + '&head=GLaDOS 签到提醒' + '&body=通知内容：\n' + mess +'，会员剩余' + time + '天')
     else:
         requests.get('http://push.ijingniu.cn/send?key=' + sckey + '&head=GLaDOS Cookie过期')
 
