@@ -1,5 +1,17 @@
 import requests,json,os
-
+# 可以封装成函数，方便 Python 的程序调用
+import socket
+ 
+def get_host_ip():
+  try:
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect(('8.8.8.8', 80))
+    ip = s.getsockname()[0]
+  finally:
+    s.close()
+ 
+  return ip
+print(get_host_ip())
 # server酱开关，填off不开启(默认)，填on同时开启cookie失效通知和签到成功通知
 sever = os.environ["SERVE"]
 # 填写server酱sckey,不开启server酱则不用填
