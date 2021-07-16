@@ -44,9 +44,10 @@ def start():
         time = time.split('.')[0]
         #print(time)
         if sever == 'on':
-            requests.post('http://pushplus.hxtrip.com/send',{'token':sckey,'title':'GLaDOS 签到提醒','content': mess +'，会员剩余' + time + '天'})
+            if mess.find("try next time") == -1:
+                requests.post('http://www.pushplus.plus/send',{'token':sckey,'title':'GLaDOS 签到成功','content': mess +'，会员剩余' + time + '天'})
     else:
-        requests.post('http://pushplus.hxtrip.com/send',{'token':sckey,'title':'GLaDOS Cookie过期'})
+        requests.post('http://www.pushplus.plus/send',{'token':sckey,'title':'GLaDOS Cookie过期'})
 
 def main_handler(event, context):
   return start()
